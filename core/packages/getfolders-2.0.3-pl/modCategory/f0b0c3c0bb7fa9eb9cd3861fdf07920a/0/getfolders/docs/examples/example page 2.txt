@@ -1,0 +1,89 @@
+<h1>Another example for a drop down menu.</h1>
+<style>
+/* navigation */ 
+nav {
+    font-weight: bold;
+    font-size: .65em;
+    margin-left: 25%;
+ }
+  
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+  
+nav a:link,
+nav a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+nav li {
+    float: left;
+	background: none;
+    margin-right: 1px;
+    position: relative;
+    border-radius: .75em;
+}
+
+nav li li{
+    width: 12em;
+    margin-top: 1px;
+}
+ 
+nav li:hover {
+    background: #00f;
+}
+nav li li:hover {
+    background: #00f;
+}  
+ 
+  
+nav ul ul  {
+    position: absolute;
+    visibility: hidden;
+}
+  
+nav ul ul ul{
+    position: absolute;
+    left: 100%;
+    top: -2px;
+    border: solid 1px transparent;
+} 
+ 
+nav li:hover > ul {
+    visibility: visible;
+}
+  
+nav a {
+    display: block;
+    padding: .5em .75em;
+    border-radius: .75em;
+	background: -webkit-linear-gradient(#0ff, #00f); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#0ff, #00f); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#0ff, #00f); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#0ff, #00f); /* Standard syntax (must be last) */
+    margin-right: 1px;
+    position: relative;
+}
+ 
+nav a:hover,
+nav a:focus {
+    color: #fff;
+	background: -webkit-linear-gradient(#00f, #0ff); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#00f, #0ff); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#00f, #0ff); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#00f, #0ff); /* Standard syntax (must be last) */
+}  
+</style>
+
+[[!getFolders]]
+
+<nav>
+<ul>
+[[!getFoldersList?
+&getFoldersList_array=`[[+getFolders_array]]`
+]]
+</ul>
+</nav>

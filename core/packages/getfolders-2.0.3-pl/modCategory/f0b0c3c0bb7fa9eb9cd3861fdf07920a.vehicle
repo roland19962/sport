@@ -1,0 +1,91 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Chunks' => 
+    array (
+      '879aac6b1c6d02f11dbe46d32914f1b8' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modChunk',
+        'object' => '{"id":1,"source":0,"property_preprocess":0,"name":"example_getFoldersList_Child_Tpl","description":"Basic example template for getFoldersList. This chunk is for child directories.","editor_type":0,"category":0,"cache_type":0,"snippet":"<li>\\n<a href=\\"[[~81?&folder=`[[+fPath]]`]]\\">[[+folder]]<\\/a>\\n<\\/li>\\n","locked":0,"properties":null,"static":0,"static_file":"","content":"<li>\\n<a href=\\"[[~81?&folder=`[[+fPath]]`]]\\">[[+folder]]<\\/a>\\n<\\/li>\\n"}',
+        'guid' => '024880d7421f856ca6c279847eb1332f',
+        'native_key' => 1,
+        'signature' => '2e0ed1e91ca21e245ca19b940c801165',
+      ),
+      '249321db597356ed9c87a2cfb6991482' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modChunk',
+        'object' => '{"id":2,"source":0,"property_preprocess":0,"name":"example_getFoldersList_Parent_Tpl","description":"Basic example template for getFoldersList. This chunk is for parent directories.","editor_type":0,"category":0,"cache_type":0,"snippet":"<li>\\n<a href=\\"[[~[[*id]]]]\\">[[+folder]]<\\/a>\\n<ul>\\n[[+children]]\\n<\\/ul>\\n<\\/li>\\n","locked":0,"properties":null,"static":0,"static_file":"","content":"<li>\\n<a href=\\"[[~[[*id]]]]\\">[[+folder]]<\\/a>\\n<ul>\\n[[+children]]\\n<\\/ul>\\n<\\/li>\\n"}',
+        'guid' => '883547459fad7f51312cdf15e3fb58f9',
+        'native_key' => 2,
+        'signature' => '16aed855f42ff503a77f4d47fafd877b',
+      ),
+    ),
+    'Snippets' => 
+    array (
+      '3c0fe5f69d0e9befa6a46c27d67e514f' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modSnippet',
+        'object' => '{"id":1,"source":0,"property_preprocess":0,"name":"getFoldersList","description":"This Snippet creates a list from the folders found with getFolders","editor_type":0,"category":0,"cache_type":0,"snippet":"\\/*\\n * getFoldersList\\n *\\n * DESCRIPTION\\n *\\n * This Snippet creates a list from the folders found with getFolders \\n *\\n * PARAMETERS:\\n *\\n * &getFoldersList_array array - The array returned by getFolders\\n *\\n *version 2.0.3-pl\\n * author J. Mercer (ultravision.net)\\n *\\n * USAGE:\\n *\\n * <ul>[[!getFoldersList]]<\\/ul>\\n * You MUST call getFolders first\\n * \\n *\\n *\\/\\n\\n$getFoldersList_array = $modx->getPlaceholder(\'getFolders_array\');\\n$tplChild = $modx->getOption(\'tplChild\', $scriptProperties, \'getFoldersList_Child_Tpl\');\\n$tplParent = $modx->getOption(\'tplParent\', $scriptProperties, \'getFoldersList_Parent_Tpl\');\\n\\nfunction populateList($curentArray, $modx, $tplChild, $tplParent, $level = 0)\\n{\\n\\tforeach ($curentArray as $directory)\\n\\t{\\n\\t\\tif(empty($directory[1]))\\n\\t\\t{\\n\\t\\t\\t$fPath = $directory[0];\\n\\t\\t\\t$folder = basename($fPath);\\n\\t\\t\\t$path = preg_replace(\'\\/\'. preg_quote($folder, \'\\/\') . \'$\\/\', \'\', $fPath);\\n\\t\\t\\t$parent = basename($path);\\n\\t\\t\\t$modx->setPlaceholder(\'level\', $level);\\n\\t\\t\\t$modx->setPlaceholder(\'parent\', $parent);\\n\\t\\t\\t$modx->setPlaceholder(\'fPath\', $fPath);\\n\\t\\t\\t$modx->setPlaceholder(\'path\', $path);\\n\\t\\t\\t$modx->setPlaceholder(\'folder\', $folder);\\n\\t\\t\\t$childChunk = $modx->getChunk($tplChild);\\n\\t\\t\\t$list .= $childChunk;\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\t$children = populateList($directory[1], $modx, $tplChild, $tplParent, $level + 1);\\n\\t\\t\\t$path = $directory[0];\\n\\t\\t\\t$folder = basename($path);\\n\\t\\t\\t$modx->setPlaceholder(\'children\', $children);\\n\\t\\t\\t$modx->setPlaceholder(\'path\', $path);\\n\\t\\t\\t$modx->setPlaceholder(\'folder\',$folder);\\n\\t\\t\\t$parentChunk = $modx->getChunk($tplParent);\\n\\t\\t\\t$list .= $parentChunk;\\n\\n\\t\\t}\\n\\t}\\n\\nreturn $list;\\n}\\n\\n$output = populateList($getFoldersList_array, $modx, $tplChild, $tplParent);\\n\\nreturn $output;","locked":0,"properties":"a:0:{}","moduleguid":"","static":0,"static_file":"","content":"\\/*\\n * getFoldersList\\n *\\n * DESCRIPTION\\n *\\n * This Snippet creates a list from the folders found with getFolders \\n *\\n * PARAMETERS:\\n *\\n * &getFoldersList_array array - The array returned by getFolders\\n *\\n *version 2.0.3-pl\\n * author J. Mercer (ultravision.net)\\n *\\n * USAGE:\\n *\\n * <ul>[[!getFoldersList]]<\\/ul>\\n * You MUST call getFolders first\\n * \\n *\\n *\\/\\n\\n$getFoldersList_array = $modx->getPlaceholder(\'getFolders_array\');\\n$tplChild = $modx->getOption(\'tplChild\', $scriptProperties, \'getFoldersList_Child_Tpl\');\\n$tplParent = $modx->getOption(\'tplParent\', $scriptProperties, \'getFoldersList_Parent_Tpl\');\\n\\nfunction populateList($curentArray, $modx, $tplChild, $tplParent, $level = 0)\\n{\\n\\tforeach ($curentArray as $directory)\\n\\t{\\n\\t\\tif(empty($directory[1]))\\n\\t\\t{\\n\\t\\t\\t$fPath = $directory[0];\\n\\t\\t\\t$folder = basename($fPath);\\n\\t\\t\\t$path = preg_replace(\'\\/\'. preg_quote($folder, \'\\/\') . \'$\\/\', \'\', $fPath);\\n\\t\\t\\t$parent = basename($path);\\n\\t\\t\\t$modx->setPlaceholder(\'level\', $level);\\n\\t\\t\\t$modx->setPlaceholder(\'parent\', $parent);\\n\\t\\t\\t$modx->setPlaceholder(\'fPath\', $fPath);\\n\\t\\t\\t$modx->setPlaceholder(\'path\', $path);\\n\\t\\t\\t$modx->setPlaceholder(\'folder\', $folder);\\n\\t\\t\\t$childChunk = $modx->getChunk($tplChild);\\n\\t\\t\\t$list .= $childChunk;\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\t$children = populateList($directory[1], $modx, $tplChild, $tplParent, $level + 1);\\n\\t\\t\\t$path = $directory[0];\\n\\t\\t\\t$folder = basename($path);\\n\\t\\t\\t$modx->setPlaceholder(\'children\', $children);\\n\\t\\t\\t$modx->setPlaceholder(\'path\', $path);\\n\\t\\t\\t$modx->setPlaceholder(\'folder\',$folder);\\n\\t\\t\\t$parentChunk = $modx->getChunk($tplParent);\\n\\t\\t\\t$list .= $parentChunk;\\n\\n\\t\\t}\\n\\t}\\n\\nreturn $list;\\n}\\n\\n$output = populateList($getFoldersList_array, $modx, $tplChild, $tplParent);\\n\\nreturn $output;"}',
+        'guid' => 'da680907a11421407dfb0fae435947f2',
+        'native_key' => 1,
+        'signature' => '312e928eba7166331edb8591efafb996',
+      ),
+      'bc3554af5107ebfa833b0a133f3ef91a' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modSnippet',
+        'object' => '{"id":2,"source":0,"property_preprocess":0,"name":"getFolders","description":"Recursively searches a given search path and returns an array of arrays as a placeholder","editor_type":0,"category":0,"cache_type":0,"snippet":"\\/*\\n * getFolders\\n *\\n * DESCRIPTION\\n *\\n * This Snippet creates an array of arrays representing the folder structure of the \\"path\\"\\n * and returns a placeholder containing that array\\n *\\n * PARAMETERS:\\n *\\n * &getFolders_path string - The name of the path to search. optional. Default: assets\\n *\\n * version 2.0.3-pl\\n * author J. Mercer (ultravision.net)\\n *\\n * USAGE:\\n *\\n * [[!getFolders? \\n * &getFolders_path=`assets` \\n * ]]\\n *\\n *\\/\\n\\n$path = $modx->getOption(\'getFolders_path\', $scriptProperties, \'assets\');\\n\\nfunction globDir($path)\\n{\\n   $folders = glob(\\"$path\\/*\\", GLOB_ONLYDIR);\\n   if(!empty($folders))\\n   {\\n      foreach($folders as $folder)\\n      {\\n\\t $items = array();\\n\\t $items[] = $folder;\\n         $items[] = globDir($folder);\\n\\t $list[] = $items;\\n      }\\n   }\\n   return $list;\\n}\\n\\n$list = globDir($path);\\n$modx->setPlaceholder(\'getFolders_array\',$list);","locked":0,"properties":"a:0:{}","moduleguid":"","static":0,"static_file":"","content":"\\/*\\n * getFolders\\n *\\n * DESCRIPTION\\n *\\n * This Snippet creates an array of arrays representing the folder structure of the \\"path\\"\\n * and returns a placeholder containing that array\\n *\\n * PARAMETERS:\\n *\\n * &getFolders_path string - The name of the path to search. optional. Default: assets\\n *\\n * version 2.0.3-pl\\n * author J. Mercer (ultravision.net)\\n *\\n * USAGE:\\n *\\n * [[!getFolders? \\n * &getFolders_path=`assets` \\n * ]]\\n *\\n *\\/\\n\\n$path = $modx->getOption(\'getFolders_path\', $scriptProperties, \'assets\');\\n\\nfunction globDir($path)\\n{\\n   $folders = glob(\\"$path\\/*\\", GLOB_ONLYDIR);\\n   if(!empty($folders))\\n   {\\n      foreach($folders as $folder)\\n      {\\n\\t $items = array();\\n\\t $items[] = $folder;\\n         $items[] = globDir($folder);\\n\\t $list[] = $items;\\n      }\\n   }\\n   return $list;\\n}\\n\\n$list = globDir($path);\\n$modx->setPlaceholder(\'getFolders_array\',$list);"}',
+        'guid' => 'db1085f9271b539d50c4a18266667a5e',
+        'native_key' => 2,
+        'signature' => '4aa895d15f6b3a4d8dd130485e8bc518',
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Snippets' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Chunks' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+  ),
+  'namespace' => 'getfolders',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"getfolders-2.0.3-pl\\/modCategory\\/f0b0c3c0bb7fa9eb9cd3861fdf07920a\\/0\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"getfolders"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'c55eb4d139e6b82bc365c290d802b40d',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => 'f0b0c3c0bb7fa9eb9cd3861fdf07920a',
+  'native_key' => 1,
+  'object' => '{"id":1,"parent":0,"category":"getFolders","rank":0}',
+);

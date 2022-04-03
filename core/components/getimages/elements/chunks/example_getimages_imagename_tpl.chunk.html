@@ -1,0 +1,18 @@
+<!-- This is an example chunk for getImages to display an image with Name.  
+The tags it uses are:
++class - A placeholder to add a class to your div for styling. defaults to ""
++imgLink - The placeholder for the image link.
++infoClass - A placeholder to add a class to your div for styling. defaults to ""
++imgName - The placeholder to set the image name.
+By using the great pThumb snippit by jgrant I am able to have the page display thumbnails from a cache 
+that it creates on the fly. The link still points to the full size image. (see pThumb documentation for usage)
+-->
+
+<div class="[[+class]]">
+<a href="[[+imgLink]]" target="_blank">
+<img src="[[+imgLink:pThumb=`w=250&h=188&f=png&bg=00f&far=BC&zc=1`]]" alt="[[+imgLink]]" />
+</a>
+<div class="[[+infoClass]]">
+[[+imgName]]
+</div>
+</div>

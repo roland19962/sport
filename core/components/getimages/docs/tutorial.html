@@ -1,0 +1,101 @@
+<h1>Modx Revolution getImages Snippet as a Photo Gallery</h1>
+<hr/>
+<pre>
+Version 2.5.2
+Author: J. Mercer <jm@ultravision.net> jerry325
+Date:   Nov. 5 2016
+</pre><hr/>
+<pre>
+
+getImages
+
+Step by step instructions for setting up a gallery from your own file structure.
+
+	After downloading and installing with package management you should have the snippets
+getImages, monthName, getPage, getFolders, getFoldersList, and pThumbs as well as several example
+template chunks. First you will need 4 template chunks. To get started just duplicate the
+example_getImages_Child_Tpl, example_getImages_Parent_Tpl, example_getImages_Page_Tpl, and
+example_getImages_Image_Tpl and remove the "Duplicate of example_" part. If you plan on having 
+the snippet pull the folder from the URL you must uncomment the first "$folder" line under 
+/***** SET VARIABLES *****/
+in the snippet and comment out the second. After you have played with it a bit you will want to 
+modify the templates to suit your needs. Take a look at the other example template chunks for ideas on 
+what can be done. By my naming the supplied chunks with the example prefix it allows you to update 
+the snippet without writing over your modifications. Next you will need to create 2 documents, 
+one to act as a menu and the other to show the images. Lets call them ImagesMenu and ImagesPage 
+(you may of course name them as you see fit). 
+
+In the ImagesMenu document place a call to the getFolders snippet. Be sure to include the 
+getFolders_path if you have placed your images anywhere other than in assets. This will parse 
+the folder structure for you. Also add a call to getFoldersList to display the menu.
+
+EXAMPLE:
+[[!getFolders?
+&getFolders_path=`assets/photos`
+]]
+
+<xmp><div class="menu">
+<ul>
+[[!getFoldersList?
+&tplChild=`getImages_Child_Tpl`
+&tplParent=`getImages_Parent_Tpl`
+]]
+</ul>
+</div></xmp>
+
+You will notice that I am changing the child and parent templates to the ones made for 
+getImages and wrapping the call in <ul></ul> to complete the menu list. I use a menu css 
+style to make the unordered list appear as a dropdown menu but you can style it as you like. 
+This page should now show a list of all folders under your supplied path and each should link 
+to the ImagesPage document with ?folder=<the path to the folder> appended. For this to work 
+correctly you must change the getImages_Child_Tpl so that the link has the document ID of the 
+ImagesPage you created. In the example template chunk it is set to document id 2. Just change 
+the 2 to the ID of yours.
+
+In the ImagesPage document place the getImages snippet.
+
+EXAMPLE:
+[[!getImages]]
+
+Or place the getPage snippet with a getImages call. This will allow you to determine how many
+Images you would like per page (Add the limit & pageLimit parameters and +page.nav section to 
+show the navigation links - see getPage documentation)
+ 
+EXAMPLE with getPage:
+[[!getPage?
+&elementClass=`modSnippet`
+&element=`getImages`
+&limit=`4`
+&pageLimit=`3`
+]]
+
+[[!+page.nav]]
+
+
+EXAMPLE with more parameters:
+[[!getPage?
+&elementClass=`modSnippet`
+&element=`getImages`
+&getImages_Image_Tpl=`getImages_PhotosModel_Tpl`
+&getImages_Page_Tpl=`getImages_Page_Tpl`
+&getImages_Ext =`jpg,gif,png,JPG,GIF,PNG`
+&getImages_Paging=`1`
+&getImages_Random=`1`
+&getImages_Class=`grid-img`
+&getImages_PageClass=`row`
+&getImages_InfoClass=`info`
+&getImages_ExifClass=`exif`
+&getImages_Width=`250`
+&getImages_Height=`188`
+&limit=`10`
+&pageLimit=`3`
+]]
+
+This snippet will use the template chunks to place each image on the page. If using getPage 
+and if there are more images than will fit on the page (limit), more pages will be made by 
+getPage.
+
+This should get you going and as always I would be grateful for any and all suggestions for 
+improvements. Support/Comments should be posted here:
+<a href="http://forums.modx.com/thread/81713/support-comments-for-getimages">http://forums.modx.com/thread/81713/support-comments-for-getimages</a>
+</pre>

@@ -1,0 +1,8 @@
+<h1>Simple example for an unordered list.</h1>
+[[!getFolders]]
+
+<ul>
+[[!getFoldersList?
+&getFoldersList_array=`[[+getFolders_array]]`
+]]
+</ul>

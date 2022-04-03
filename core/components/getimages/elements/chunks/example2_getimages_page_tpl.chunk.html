@@ -1,0 +1,17 @@
+<!-- This is an example chunk for getImages using getPage for pagination of images and monthName to convert numbered folder names to month names. 
+The tags it uses are:
++folder - name of the folder (by passing this to monthName we can convert folders named 01-12 to either Jan-Dec or January-December. This is useful because if you simply named the folders using the month names they would appear in alphabetical order in your menu.
++total - A placeholder for the image count in you folder.
++page - The placeholder for your current page (from getPage)
++pageCount - The placeholder for the total number of pages. (from getPage)
++pageClass - A placeholder to add a class to your div for styling. defaults to ""
++photos - The placeholder for images from your image template chunk.
+-->
+
+<h1 class='text-center'>[[!monthName? &mn_Folder=`x[[+folder]]`]] Photos</h1>
+<!--calls monthName snippet to change numerical folder name to proper name-->
+<h4 class='text-center'>[[+total]] Photos - Page [[+page]] of [[+pageCount]]</h4>
+
+<div class="[[+pageClass]]">
+[[+photos]]
+</div>

@@ -1,0 +1,92 @@
+Changelog for getImages (for Revolution).
+getImages 2.4.3
+====================================
+- After fixing the getFolders package I added it properly as a subpackage.
+
+Changelog for getImages (for Revolution).
+getImages 2.4.2
+====================================
+- replaced parseChunk with getChunk to avoid error in logs. (thanks Terry)
+
+Changelog for getImages (for Revolution).
+getImages 2.4.1
+====================================
+- fixed issue with documentation not showing.
+
+getImages 2.4.0
+====================================
+- Added a tag to get the path without the root folder.
+- Changed some installed example chunks to show usage with pThumbs by jgrant.
+- packaged pThumb with the package for convenience. 
+- Redid all documentation.
+- made sure all parts work as described. 
+
+getImages 2.3.2
+====================================
+- Added a random sort tag. (Thanks bendy4)
+
+getImages 2.3.1
+====================================
+- Added a parent path tag.
+
+getImages 2.3.0
+====================================
+- Added ability to change sort type (thanks kilroy).
+- Changed all installed chunks to have example_ prefix so as not to overwrite with updates.
+- Redid all documentation.
+- made sure all parts work as described. 
+
+getImages 2.2.1
+====================================
+- Changed method for getting image name so that it works with any extension.
+
+getImages 2.2.0
+====================================
+- Major re-write removing the need for getImagesFolder.
+- added new placeholders to allow more versatility.
+- removed the month re-write function and put it in it's own snippet.
+- re-wrote the example templates to reflect the new placeholders.
+
+getImages 1.1.0
+====================================
+- changed the default extension call to use "jpg,gif,png,JPG,GIF,PNG".
+- fixed a typo in getImage_Tpl that would not allow images to appear.
+- cleaned up the docs.
+
+getImages 1.0.0
+====================================
+- changed the extension call to use "jpg" instead of "*.jpg".
+- added an example CSS file.
+- cleaned up the docs.
+
+getImages 0.9.2
+====================================
+- Added ability to use more than one extension.
+- Removed call to one of my personal folders in default template chunk
+* much thanks to Terry Barth for helping with the beta.
+
+getImages 0.9.1
+====================================
+- Added mising Documents Folder.
+- Added more example files.
+
+getImages 0.9.0
+====================================
+- A New name.
+- A complete rewrite to enable the use of getFolders and getPage.
+
+myGallery 0.9.0
+====================================
+- changed default paths to be under assets.
+- added docs folder under assets.
+
+myGallery 0.8.5
+====================================
+- fixed bug in pagination where ... would link to pages that didn't exist.
+
+myGallery 0.8.0
+====================================
+- Almost a complete rewrite.
+- Added template chunks.
+- Changed to Glob for image retrieval.
+- Added changelog.

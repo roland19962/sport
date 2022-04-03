@@ -1,0 +1,32 @@
+<?php return array (
+  'class' => 'xPDOTransportVehicle',
+  'object' => 
+  array (
+    'source' => 'getimages-2.4.3-pl/xPDOTransportVehicle/2b93acc29db39d038b8d1f9fe9ab0b25/',
+    'target' => 'return MODX_CORE_PATH . \'packages/\';',
+    'name' => 'pthumb-2.3.3-pl.transport.zip',
+  ),
+  'vehicle_class' => 'xPDOTransportVehicle',
+  'namespace' => 'getimages',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"getimages-2.4.3-pl\\/xPDOTransportVehicle\\/2b93acc29db39d038b8d1f9fe9ab0b25.resolve.pthumb.resolver","type":"php","name":"resolve.pthumb"}',
+    ),
+  ),
+  'validate' => 
+  array (
+    0 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"getimages-2.4.3-pl\\/xPDOTransportVehicle\\/2b93acc29db39d038b8d1f9fe9ab0b25.validate.pthumb.validator","type":"php","name":"validate.pthumb"}',
+    ),
+  ),
+  'vehicle_package' => 'transport',
+  'guid' => '1052c828109844b8bf192a9e3904e772',
+  'package' => '',
+  'signature' => '2b93acc29db39d038b8d1f9fe9ab0b25',
+  'native_key' => '1052c828109844b8bf192a9e3904e772',
+);
